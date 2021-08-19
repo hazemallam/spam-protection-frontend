@@ -1,0 +1,29 @@
+<section class="container border mt-5 bg-light text-dark">
+    <div class="row">
+        <div class="col-9"><h2 >All Reports</h2></div>
+
+    </div>
+    <table class="table table-striped ">
+        <thead >
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">type</th>
+                <th scope="col">state</th>
+                <th scope="col">message</th>
+                <th scope="col">actions</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor='let report of reports' class="border">
+                <th scope="row" class="border">{{report.id}}</th>
+                <td class="border">{{report.payload.reportType}}</td>
+                <td class="border">{{report.state}}</td>
+                <td class="border">{{report.payload.message}}</td>
+                <td class="border col-4">
+                    <button class="btn btn-danger col-4 m-1" (click)="block(report.id)">Block</button>
+                    <button class="btn btn-success col-4" (click)="resolve(report.id)">Resolve</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
